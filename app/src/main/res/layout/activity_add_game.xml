@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Background">
+
+    <include layout="@layout/top_bar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/topBar"
+        android:layout_alignBottom="@id/topBar"
+        android:textColor="@color/colorText4"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:text="@string/add_a_game"
+        android:textSize="25sp"/>
+
+    <include
+        android:id="@+id/shadow1"
+        layout="@layout/horizontal_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/bottomBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textLabel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/basic_information"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorText3"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Container1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textLabel1"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/gameTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorTransparent"
+                        android:hint="@string/game_title"
+                        android:inputType="text|textCapSentences"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/colorText4"
+                        android:textColorHint="@color/colorText3"
+                        android:textSize="20sp" />
+
+                    <include layout="@layout/divider"
+                        android:id="@+id/divider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/gameTitle"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"/>
+
+                    <EditText
+                        android:id="@+id/gameDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="100dp"
+                        android:layout_below="@id/divider1"
+                        android:background="@color/colorTransparent"
+                        android:hint="@string/short_description"
+                        android:gravity="top"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorText4"
+                        android:textColorHint="@color/colorText3"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/textLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/icon"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/Container1"
+                android:textColor="@color/colorText3"/>
+
+            <TextView
+                android:id="@+id/textCreator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/icon_creator"
+                android:textSize="12sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_above="@id/Container2"
+                android:textColor="@color/colorText3"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Container2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textLabel2"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/iconsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/icon_list_item_view"
+                        tools:itemCount="1"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/textLabel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/requirements"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/Container2"
+                android:textColor="@color/colorText3"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Container3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:layout_below="@id/textLabel3"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="50dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/requirementsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/requirement_list_item_view"
+                        tools:itemCount="2"
+                        android:layout_marginBottom="10dp"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        android:layout_alignTop="@id/bottomBar"
+        android:layout_marginTop="-20dp"
+        android:layout_centerHorizontal="true"
+        android:foreground="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="clickSave">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/saveIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_save"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textSize="18sp"
+                android:textColor="@color/colorText2"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/saveIcon"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <com.infinitemind.minibrainacademy.views.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

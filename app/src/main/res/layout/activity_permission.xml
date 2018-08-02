@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="180dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/location_permission_image" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/description"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/colorText4"
+        android:text="Location permission"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/buttonAgree"
+        android:layout_marginBottom="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/colorText1"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:text="We need this to show you how far from you are your friends."/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/buttonAgree"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/buttonDisagree"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:selectableItemBackground"
+        android:onClick="clickAgree"
+        app:cardBackgroundColor="@color/color_3"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/agree"
+            android:textAlignment="gravity"
+            android:textColor="@color/colorText2"
+            android:textSize="25sp" />
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/buttonDisagree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="clickDisagree"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/maybe_later"
+        android:textAlignment="gravity"
+        android:textColor="@color/colorRed"
+        android:textSize="20sp" />
+
+</RelativeLayout>

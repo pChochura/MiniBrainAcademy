@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/Background">
+
+    <TextView android:id="@+id/textLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/therest"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorText3"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/textLabel"
+        android:layout_marginTop="3dp"
+        app:cardBackgroundColor="@color/colorBackgroundWhite"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="1dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.shamanland.fonticon.FontIconView
+                android:id="@+id/iconGame"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:textColor="@color/colorText3"/>
+
+            <TextView
+                android:id="@+id/textGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iconGame"
+                android:textSize="16sp"
+                android:text="Berek słoń"
+                android:textColor="@color/colorText1"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

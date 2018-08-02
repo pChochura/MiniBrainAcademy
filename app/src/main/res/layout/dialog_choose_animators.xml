@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorTransparent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardBackgroundColor="@color/colorBackground"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="3dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textLabel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/required_amount"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorText3"/>
+
+            <ImageView
+                android:id="@+id/arrowLeft"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/Container1"
+                android:layout_alignBottom="@id/Container1"
+                android:layout_toLeftOf="@id/Container1"
+                android:rotation="-90"
+                android:src="@drawable/ic_arrow_up"
+                android:tint="@color/colorText3"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Container1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/textLabel1"
+                android:layout_marginTop="5dp"
+                app:cardElevation="1dp"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+                <TextView
+                    android:id="@+id/textRequiredAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorText4"
+                    android:textSize="40sp"
+                    android:textAlignment="gravity"
+                    android:gravity="center"
+                    android:text="1"/>
+
+            </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:id="@+id/arrowRight"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/Container1"
+                android:layout_alignBottom="@id/Container1"
+                android:layout_toRightOf="@id/Container1"
+                android:src="@drawable/ic_arrow_down"
+                android:rotation="-90"
+                android:tint="@color/colorText3"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/textLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arrowRight"
+                android:text="@string/available_animators"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorText3"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Container2"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@id/textLabel2"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/emptyStateAvailableAnimators"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_available_animators"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorText4"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"/>
+
+                    <com.infinitemind.minibrainacademy.views.EmptyStateRecyclerView
+                        android:id="@+id/availableAnimatorsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                        tools:listitem="@layout/animator_list_item_view"
+                        tools:itemCount="1"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+           <!-- <EditText
+                android:id="@+id/searchAnimators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Container2"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:background="@color/colorTransparent"
+                android:hint="@string/search_animators"
+                android:imeOptions="actionDone"
+                android:inputType="text|textCapSentences"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/colorText4"
+                android:textColorHint="@color/colorText3"
+                android:textSize="20sp" />
+
+            <include
+                layout="@layout/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/searchAnimators"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/Container3"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@id/searchAnimators"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/colorBackgroundWhite">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/emptyStateAllAnimators"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_animators"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorText4"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"/>
+
+                    <com.infinitemind.minibrainacademy.views.EmptyStateRecyclerView
+                        android:id="@+id/allAnimatorsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                        tools:listitem="@layout/animator_list_item_view"
+                        tools:itemCount="3"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>-->
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        android:layout_below="@id/cardView"
+        android:layout_marginTop="-20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:foreground="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/saveIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_save"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textSize="18sp"
+                android:textColor="@color/colorText2"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/saveIcon"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

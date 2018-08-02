@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include layout="@layout/top_bar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/topBar"
+        android:layout_alignTop="@id/topBar"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorText4"
+        android:gravity="center"
+        android:text="@string/places"
+        android:textAlignment="gravity"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:background="@color/colorTransparent"
+        android:gravity="center"
+        android:hint="@string/search_places"
+        android:inputType="text"
+        android:padding="5dp"
+        android:textAlignment="gravity"
+        android:textColor="@color/colorText4"
+        android:textColorHint="@color/colorText3"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageErase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/searchText"
+        android:layout_alignTop="@id/searchText"
+        android:layout_alignBottom="@id/searchText"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/ic_cancel"
+        android:tint="@color/colorAccent"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="clickErase"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/divider1"
+        layout="@layout/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/searchText"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
+
+    <include
+        android:id="@+id/shadow1"
+        layout="@layout/horizontal_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider1"
+        android:visibility="gone"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomBar"
+        android:layout_below="@id/divider1"
+        android:theme="@style/AppTheme">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/placesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/place_list_item_view"
+            tools:itemCount="1"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.infinitemind.minibrainacademy.views.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:menu1="@array/menu_basic"
+        app:menu2="@array/menu_places"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        android:layout_alignTop="@id/bottomBar"
+        android:layout_marginTop="-20dp"
+        android:layout_centerHorizontal="true"
+        android:foreground="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="clickAddPlace">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/addIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_a_place"
+                android:textSize="18sp"
+                android:textColor="@color/colorText2"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/addIcon"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

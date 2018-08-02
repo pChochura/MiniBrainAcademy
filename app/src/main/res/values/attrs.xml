@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Badge">
+        <attr name="number" format="string" />
+        <attr name="color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SlantedImageView">
+        <attr name="direction" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="top" value="2"/>
+            <enum name="bottom" value="3"/>
+        </attr>
+        <attr name="startPercentage" format="integer"/>
+        <attr name="stopPercentage" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ViewPagerTabs">
+        <attr name="numberOfTabs" format="enum">
+            <enum name="one" value="1"/>
+            <enum name="two" value="2"/>
+            <enum name="three" value="3"/>
+        </attr>
+        <attr name="selectedTab" format="enum">
+            <enum name="first" value="0"/>
+            <enum name="second" value="1"/>
+            <enum name="third" value="2"/>
+        </attr>
+        <attr name="tabValue1" format="reference"/>
+        <attr name="tabValue2" format="reference"/>
+        <attr name="tabValue3" format="reference"/>
+        <attr name="tabTextSize" format="dimension"/>
+        <attr name="defaultColor" format="color"/>
+        <attr name="selectedColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="BottomBar">
+        <attr name="barElevation" format="dimension"/>
+        <attr name="moreButton" format="boolean"/>
+        <attr name="customButton" format="boolean"/>
+        <attr name="customButtonResource" format="reference"/>
+        <attr name="menu1" format="reference"/>
+        <attr name="menu2" format="reference"/>
+    </declare-styleable>
+</resources>

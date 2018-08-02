@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.infinitemind.minibrainacademy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="net.hockeyapp.android.appIdentifier"
+            android:value="${HOCKEYAPP_APP_ID}" />
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShowEventActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SemiTransparentWindow" />
+        <activity
+            android:name=".activities.CalendarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MyEventsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ScheduleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GamesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddGameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddEventActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AnnouncementsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddAnnouncementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PlacesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddPlaceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TranslucentStatus" />
+        <activity
+            android:name=".activities.AnimatorsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PermissionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.FirstLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TranslucentStatus" />
+        <activity
+            android:name=".activities.FormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.SemiTransparentWindow" />
+
+        <service
+            android:name=".services.EventAlarmService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".services.StartServices"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".services.AnnouncementsService"
+            android:exported="false" />
+        <service
+            android:name=".services.AnnouncementService"
+            android:exported="false" />
+        <service
+            android:name=".services.EventsService"
+            android:exported="false" />
+        <service
+            android:name=".services.EventService"
+            android:exported="false" />
+        <service
+            android:name=".services.RequestsService"
+            android:exported="false" />
+        <service
+            android:name=".services.RequestService"
+            android:exported="false" />
+        <service
+            android:name=".services.RemindEventService"
+            android:exported="false" />
+        <service
+            android:name=".services.DoneEventService"
+            android:exported="false" />
+
+        <receiver android:name=".receivers.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.EventAlarmReceiver" />
+
+    </application>
+
+</manifest>

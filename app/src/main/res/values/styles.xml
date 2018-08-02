@@ -1,0 +1,31 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/quicksand</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+    </style>
+
+    <style name="AppTheme.TranslucentStatus" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="AppTheme.TransparentWindow" parent="AppTheme.TranslucentStatus">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/colorTransparent</item>
+        <item name="android:statusBarColor">@color/colorTransparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTheme.SemiTransparentWindow" parent="AppTheme.TransparentWindow">
+        <item name="android:windowBackground">@color/colorSemiTransparent</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme.TranslucentStatus">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+</resources>

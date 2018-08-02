@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/top_bar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/topBar"
+        android:layout_alignBottom="@id/topBar"
+        android:textColor="@color/colorText4"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:text="@string/animators"
+        android:textSize="25sp"/>
+
+    <include
+        android:id="@+id/shadow1"
+        layout="@layout/horizontal_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewPagerTabs"
+        android:visibility="gone"/>
+
+    <com.infinitemind.minibrainacademy.views.ViewPagerTabs
+        android:id="@+id/viewPagerTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        app:defaultColor="@color/colorText1"
+        app:selectedColor="@color/colorAccent"
+        app:tabTextSize="16sp"
+        app:numberOfTabs="two"
+        app:selectedTab="first"
+        app:tabValue1="@string/all_animators"
+        app:tabValue2="@string/requests" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tabsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/viewPagerTabs"
+        android:layout_above="@id/bottomBar"/>
+
+    <com.infinitemind.minibrainacademy.views.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:customButton="true"
+        app:customButtonResource="@drawable/ic_filter"/>
+
+</RelativeLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/monthLabel"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:foreground="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/colorBackgroundWhite"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="1dp"
+        app:cardUseCompatPadding="false">
+
+        <RelativeLayout
+            android:id="@+id/Background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants">
+
+            <RelativeLayout
+                android:id="@+id/smallView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp">
+
+                <com.shamanland.fonticon.FontIconView
+                    android:id="@+id/imageIcon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:textAlignment="gravity"
+                    android:gravity="center"
+                    android:textSize="35sp"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/imageIcon"
+                    android:layout_marginLeft="5dp"
+                    android:text="Name"
+                    android:textColor="@color/colorText4"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:id="@+id/imageArrow"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:tint="@color/colorText4"
+                    android:src="@drawable/ic_arrow_down"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bigView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@id/smallView"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorText1"/>
+
+                <include layout="@layout/divider"
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/textDescription"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/textRequirements"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorText3"
+                    android:layout_below="@id/divider1"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imageDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/smallView"
+                android:layout_alignBottom="@id/smallView"
+                android:layout_marginTop="-15dp"
+                android:layout_marginBottom="-15dp"
+                android:background="@color/colorSemiTransparentRed"
+                android:src="@drawable/ic_delete"
+                android:padding="100dp"
+                android:scaleType="center"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "931042985435",
+    "firebase_url": "https://minibrainacademy-763e4.firebaseio.com",
+    "project_id": "minibrainacademy-763e4",
+    "storage_bucket": "minibrainacademy-763e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931042985435:android:03ae068fe65716ba",
+        "android_client_info": {
+          "package_name": "com.infinitemind.minibrainacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931042985435-dkjak4c9f4vgshceboafuj3ihtgv70oj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.infinitemind.minibrainacademy",
+            "certificate_hash": "82a90ab907a4080ede9ef0d331e459a2b920e3d9"
+          }
+        },
+        {
+          "client_id": "931042985435-90hf9kd5e188hj75srqo1ntc6ho1c20q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7CNgfr9h4MhNrmmgRCJpwkkL1D73_rKY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931042985435-90hf9kd5e188hj75srqo1ntc6ho1c20q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

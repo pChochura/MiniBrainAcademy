@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_basic" />
+    <string-array name="menu_main">
+        <item>@string/logout</item>
+    </string-array>
+    <string-array name="menu_animator">
+        <item>@string/change_rank</item>
+        <item>@string/delete</item>
+        <item>@string/remove_key</item>
+    </string-array>
+    <string-array name="menu_events">
+        <item>@string/add_an_event</item>
+        <item>@string/remove_an_event</item>
+    </string-array>
+    <string-array name="menu_places">
+        <item>@string/add_a_place</item>
+        <item>@string/remove_a_place</item>
+    </string-array>
+    <string-array name="menu_announcements">
+        <item>@string/add_an_announcement</item>
+        <item>@string/remove_an_announcement</item>
+    </string-array>
+    <string-array name="menu_games">
+        <item>@string/add_a_game</item>
+        <item>@string/remove_a_game</item>
+    </string-array>
+</resources>

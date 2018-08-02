@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Background">
+
+    <TextView
+        android:id="@+id/textLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instantaneous"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorText3"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textLabel"
+        android:foreground="?android:selectableItemBackground"
+        app:cardBackgroundColor="@color/colorBackgroundWhite"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="1dp"
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/dotContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/textContent"
+                android:layout_alignBottom="@id/textContent"
+                android:gravity="center"
+                android:layout_marginLeft="5dp">
+
+                <ImageView
+                    android:id="@+id/dotShadow"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:alpha="0.2"
+                    android:src="@drawable/circle"
+                    android:tint="@color/colorAccent" />
+
+                <ImageView
+                    android:id="@+id/dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/dotShadow"
+                    android:layout_alignLeft="@id/dotShadow"
+                    android:layout_alignRight="@id/dotShadow"
+                    android:layout_alignTop="@id/dotShadow"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/circle"
+                    android:tint="@color/colorAccent" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_toRightOf="@id/dotContainer"
+                android:text="Content"
+                android:textColor="@color/colorText4"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/eventsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textContent"
+                android:layout_toRightOf="@id/dotContainer"
+                android:layout_marginRight="5dp"
+                tools:listitem="@layout/event_list_item_view_small"
+                tools:itemCount="1"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/animatorsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/eventsList"
+                android:layout_toRightOf="@id/dotContainer"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal"
+                tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                tools:listitem="@layout/animator_list_item_view_small"
+                tools:itemCount="3"/>
+
+            <ImageView
+                android:id="@+id/imageDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/textContent"
+                android:layout_alignBottom="@id/animatorsList"
+                android:layout_marginTop="-15dp"
+                android:background="@color/colorSemiTransparentRed"
+                android:src="@drawable/ic_delete"
+                android:padding="150dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

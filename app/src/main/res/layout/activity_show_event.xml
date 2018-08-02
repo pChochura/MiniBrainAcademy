@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:onClick="clickDismiss"
+    android:id="@+id/Background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:layout_above="@id/cancelButton"
+        android:layout_alignParentTop="true">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/eventContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="@color/colorBackgroundWhite"
+            android:clickable="true"
+            android:focusable="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/timeContainer"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Title"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText4"/>
+
+                <TextView
+                    android:id="@+id/textAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/timeContainer"
+                    android:layout_below="@+id/textName"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Address"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorText3"/>
+
+                <TextView
+                    android:id="@+id/textDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/timeContainer"
+                    android:layout_alignLeft="@+id/timeContainer"
+                    android:layout_below="@+id/timeContainer"
+                    android:layout_marginRight="-20dp"
+                    android:layout_marginLeft="-20dp"
+                    android:textAlignment="gravity"
+                    android:gravity="center"
+                    android:text="December 31, 2018"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorText1"/>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/timeContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    app:cardElevation="1dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardBackgroundColor="@color/color_2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
+
+                        <TextView
+                            android:id="@+id/textTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textAlignment="gravity"
+                            android:gravity="center"
+                            android:text="12:00"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorText2"/>
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorText4"
+                    android:layout_below="@id/textAddress"
+                    android:text="Some looong description..."/>
+
+                <TextView
+                    android:id="@+id/textRequirements"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorText1"
+                    android:layout_below="@id/textDescription"
+                    android:text="Requirements:\n  -nothing,\n  -something."/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/animatorsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textRequirements"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/animator_list_item_view_small"
+                    tools:itemCount="3"/>
+
+                <ImageView
+                    android:id="@+id/imageMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@id/animatorsList"
+                    android:src="@mipmap/static_map"
+                    android:scaleType="centerCrop"
+                    android:background="?android:selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="clickOpenMap"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/callButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            android:layout_below="@id/eventContainer"
+            android:layout_alignLeft="@id/eventContainer"
+            android:layout_alignRight="@id/eventContainer"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-20dp"
+            android:layout_centerHorizontal="true"
+            android:foreground="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/textPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+48 775 829 632"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorText2"
+                    android:textAlignment="gravity"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:cardBackgroundColor="@color/colorRed"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:foreground="?android:selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="clickCancel">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/cancelIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cancel"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:textSize="18sp"
+                android:textColor="@color/colorText2"
+                android:textAlignment="gravity"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/cancelIcon"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/Background">
+
+    <com.infinitemind.minibrainacademy.views.SingleLineTextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="@color/colorText1"
+        android:textSize="25sp"/>
+
+    <!--<include layout="@layout/tiles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textWelcome"
+        android:layout_above="@id/bottomBar"/>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tilesList"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textWelcome"
+        android:layout_above="@id/bottomBar"/>
+
+    <com.infinitemind.minibrainacademy.views.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:menu1="@array/menu_main"/>
+
+</RelativeLayout>

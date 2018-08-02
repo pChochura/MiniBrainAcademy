@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/Background">
+
+    <TextView
+        android:id="@+id/textLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/most_frequent"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorText3"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardGame1"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_below="@id/textLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/colorGold"
+        app:cardCornerRadius="55dp"
+        app:cardElevation="0dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.shamanland.fonticon.FontIconView
+                android:id="@+id/iconGame1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:textColor="@color/colorText4"
+                android:textSize="80sp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textGame1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/cardGame1"
+        android:layout_alignRight="@id/cardGame1"
+        android:layout_below="@id/cardGame1"
+        android:layout_marginTop="5dp"
+        android:text="Legalny banan"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/colorText1"
+        android:visibility="gone"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardGame2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/textLabel"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@color/colorSilver"
+        app:cardCornerRadius="55dp"
+        app:cardElevation="0dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.shamanland.fonticon.FontIconView
+                android:id="@+id/iconGame2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:textColor="@color/colorText4"
+                android:textSize="80sp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textGame2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/cardGame2"
+        android:layout_alignRight="@id/cardGame2"
+        android:layout_below="@id/cardGame2"
+        android:layout_marginTop="5dp"
+        android:text="Sałatka owocowa"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/colorText1"
+        android:visibility="gone"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardGame3"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_below="@id/textLabel"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        app:cardBackgroundColor="@color/colorBronze"
+        app:cardCornerRadius="55dp"
+        app:cardElevation="0dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.shamanland.fonticon.FontIconView
+                android:id="@+id/iconGame3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:textColor="@color/colorText4"
+                android:textSize="80sp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textGame3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/cardGame3"
+        android:layout_alignRight="@id/cardGame3"
+        android:layout_below="@id/cardGame3"
+        android:layout_marginTop="5dp"
+        android:text="Przeciąganie liny"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/colorText1"
+        android:visibility="gone"/>
+
+</RelativeLayout>
