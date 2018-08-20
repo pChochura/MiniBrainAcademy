@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.util.SparseArray;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -48,6 +49,7 @@ public class CalendarActivity extends BaseActivity {
 	private CalendarViewAdapter calendarViewAdapter;
 	private ChildEventListener eventListener;
 	private UnScrollableLinearLayoutManager eventsLayoutManager;
+	public static boolean removeMode;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -272,8 +274,36 @@ public class CalendarActivity extends BaseActivity {
 		eventListView.addItemDecoration(new BottomPaddingItemDecoration(Utils.dpToPx(50, getApplicationContext())));
 
 		eventsListAdapter.setOnItemClickListener(position -> {
-			startActivity(new Intent(getApplicationContext(), ShowEventActivity.class).putExtra("id", eventsFromMonth.get(position).getId().toString()));
-			overridePendingTransition(R.anim.fade_scale_in, 0);
+			if(removeMode) {
+				Utils.makeDialog(CalendarActivity.this, R.layout.dialog_message, dialog -> {
+					((TextView) dialog.findViewById(R.id.textMessage)).setText(getResources().getString(R.string.delete_an_event));
+					((TextView) dialog.findViewById(R.id.agreeText)).setText(getResources().getString(R.string.yes));
+					((ImageView) dialog.findViewById(R.id.agreeIcon)).setImageResource(R.drawable.ic_delete);
+
+					dialog.findViewById(R.id.agreeButton).setOnClickListener(view -> {
+						dialog.dismiss();
+						String id = GlobalData.allEvents.remove(position).getId().toString();
+						GlobalData.removeEvent(id);
+						GlobalData.fillProfileEvents();
+						ongoingEvents = Event.getEventsByState(GlobalData.profileEvents, Event.State.Ongoing);
+
+						ArrayList<Event> events = Event.getEventsFromMonth(ongoingEvents, selectedMonth, selectedYear);
+						for(int i = eventsFromMonth.size() - 1; i >= 0; i--)
+							if(!events.contains(eventsFromMonth.get(i)))
+								eventsFromMonth.remove(i);
+						for(Event event : events)
+							if(!eventsFromMonth.contains(event))
+								eventsFromMonth.add(event);
+
+						fillMonths();
+						eventsListAdapter.notifyDataSetChanged();
+						calendarViewAdapter.notifyDataSetChanged();
+					});
+				});
+			} else {
+				startActivity(new Intent(getApplicationContext(), ShowEventActivity.class).putExtra("id", eventsFromMonth.get(position).getId().toString()));
+				overridePendingTransition(R.anim.fade_scale_in, 0);
+			}
 		});
 	}
 
@@ -327,6 +357,12 @@ public class CalendarActivity extends BaseActivity {
 	public void openContextMenu(SparseArray<TextView> items, PopupWindow popup) {
 		items.get(getResources().getString(R.string.add_an_event).hashCode()).setOnClickListener(view ->
 				startActivityForResult(new Intent(getApplicationContext(), AddEventActivity.class), Constants.ADD_EVENT_REQUEST_CODE));
+		items.get(getResources().getString(R.string.remove_an_event).hashCode()).setOnClickListener(view -> {
+			removeMode = !removeMode;
+			eventsListAdapter.removeMode = removeMode;
+			eventsListAdapter.notifyDataSetChanged();
+			popup.dismiss();
+		});
 	}
 
 }

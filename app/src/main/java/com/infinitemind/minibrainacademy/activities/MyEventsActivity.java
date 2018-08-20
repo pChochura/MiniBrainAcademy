@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -43,6 +44,7 @@ public class MyEventsActivity extends BaseActivity {
 	private EventsListAdapter eventsListAdapter;
 	private ChildEventListener eventListener;
 	private LinearLayoutManager eventsLayoutManager;
+	public static boolean removeMode;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -150,8 +152,27 @@ public class MyEventsActivity extends BaseActivity {
 		myEventsList.addItemDecoration(new BottomPaddingItemDecoration(Utils.dpToPx(50, getApplicationContext())));
 
 		eventsListAdapter.setOnItemClickListener(position -> {
-			startActivity(new Intent(getApplicationContext(), ShowEventActivity.class).putExtra("id", searchedEvents.get(position).getId().toString()));
-			overridePendingTransition(R.anim.fade_scale_in, 0);
+			if(removeMode) {
+				Utils.makeDialog(MyEventsActivity.this, R.layout.dialog_message, dialog -> {
+					((TextView) dialog.findViewById(R.id.textMessage)).setText(getResources().getString(R.string.delete_an_event));
+					((TextView) dialog.findViewById(R.id.agreeText)).setText(getResources().getString(R.string.yes));
+					((ImageView) dialog.findViewById(R.id.agreeIcon)).setImageResource(R.drawable.ic_delete);
+
+					dialog.findViewById(R.id.agreeButton).setOnClickListener(view -> {
+						dialog.dismiss();
+						String id = GlobalData.allEvents.remove(position).getId().toString();
+						GlobalData.removeEvent(id);
+						GlobalData.fillProfileEvents();
+						ongoingEvents = getOngoingEvents();
+						refreshSearchEvents(null);
+
+						eventsListAdapter.notifyDataSetChanged();;
+					});
+				});
+			} else {
+				startActivity(new Intent(getApplicationContext(), ShowEventActivity.class).putExtra("id", searchedEvents.get(position).getId().toString()));
+				overridePendingTransition(R.anim.fade_scale_in, 0);
+			}
 		});
 
 		myEventsList.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -222,6 +243,12 @@ public class MyEventsActivity extends BaseActivity {
 	@Override
 	public void openContextMenu(SparseArray<TextView> items, PopupWindow popup) {
 		items.get(getResources().getString(R.string.add_an_event).hashCode()).setOnClickListener(this::clickAddEvent);
+		items.get(getResources().getString(R.string.remove_an_event).hashCode()).setOnClickListener(view -> {
+			removeMode = !removeMode;
+			eventsListAdapter.removeMode = removeMode;
+			eventsListAdapter.notifyDataSetChanged();
+			popup.dismiss();
+		});
 	}
 
 }

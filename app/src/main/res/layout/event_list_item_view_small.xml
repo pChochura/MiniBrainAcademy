@@ -121,6 +121,19 @@
 
             </android.support.v7.widget.CardView>
 
+            <ImageView
+                android:id="@+id/imageDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imagePhoto"
+                android:layout_alignBottom="@id/textDate"
+                android:layout_marginBottom="-15dp"
+                android:background="@color/colorSemiTransparentRed"
+                android:src="@drawable/ic_delete"
+                android:padding="170dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

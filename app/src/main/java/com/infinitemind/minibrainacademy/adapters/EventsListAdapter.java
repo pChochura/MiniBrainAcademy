@@ -26,11 +26,12 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Da
 	private ArrayList<Event> events;
 	private boolean showLabel, selectable, addable;
 	private Type type;
+	public boolean removeMode;
 
 	static class DataObjectHolder extends RecyclerView.ViewHolder {
 		RelativeLayout Background;
 		TextView textTitle, textDate, textTime, monthLabel, textCanceled;
-		ImageView imageDot, imageDotShadow;
+		ImageView imageDot, imageDotShadow, imageDelete;
 		CardView timeContainer, cardView;
 
 		DataObjectHolder(View itemView) {
@@ -40,6 +41,7 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Da
 			textDate = itemView.findViewById(R.id.textDate);
 			textTime = itemView.findViewById(R.id.textTime);
 			cardView = itemView.findViewById(R.id.cardView);
+			imageDelete = itemView.findViewById(R.id.imageDelete);
 			try {
 				monthLabel = itemView.findViewById(R.id.monthLabel);
 				imageDot = itemView.findViewById(R.id.dot);
@@ -109,6 +111,8 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Da
 
 		if(type == Type.Big)
 			holder.textCanceled.setVisibility(events.get(position).getState() == Event.State.Canceled ? View.VISIBLE : View.GONE);
+
+		holder.imageDelete.setVisibility(removeMode ? View.VISIBLE : View.GONE);
 
 		holder.cardView.setOnClickListener(view -> myClickListener.onEventClick(holder.getAdapterPosition()));
 	}

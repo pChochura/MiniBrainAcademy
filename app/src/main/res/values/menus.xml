@@ -13,6 +13,9 @@
         <item>@string/add_an_event</item>
         <item>@string/remove_an_event</item>
     </string-array>
+    <string-array name="menu_schedule">
+        <item>@string/add_an_event</item>
+    </string-array>
     <string-array name="menu_places">
         <item>@string/add_a_place</item>
         <item>@string/remove_a_place</item>
